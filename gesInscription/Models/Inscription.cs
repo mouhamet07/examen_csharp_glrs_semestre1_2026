@@ -11,5 +11,9 @@ namespace gesInscription.Models
         public int EtudiantId {get; set;}
         public int ClasseId {get; set;}
         public int AnneeScolaireId {get; set;}
+        public Inscription()
+        {
+            Date = DateTime.Now();
+        }
     }
 } 

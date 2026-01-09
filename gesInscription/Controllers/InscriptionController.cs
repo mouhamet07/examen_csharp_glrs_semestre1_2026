@@ -1,11 +1,11 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.Metadata;
-using gesEmpWeb.Models;
-using gesEmpWeb.Services;
+using gesInscription.Models;
+using gesInscription.Services;
 using System.ComponentModel.Design;
 
-namespace gesEmpWeb.Controllers
+namespace gesInscription.Controllers
 {
     public class InscriptionController : Controllers
     {
@@ -33,9 +33,18 @@ namespace gesEmpWeb.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Etudiants = _etudiantService.GetEtudiants();
+            ViewBag.Classes = _classeService.GetClasses();
+            ViewBag.Annees = _anneeService.GetAnneeScolaires();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(int etudiantId, int classeId, int anneeId, decimal montant)
+        {
+            var inscription = new Inscription();
             return View();
         }
     }
