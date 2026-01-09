@@ -45,6 +45,11 @@ namespace gesInscription.Controllers
         public IActionResult Create(int etudiantId, int classeId, int anneeId, decimal montant)
         {
             var inscription = new Inscription();
+            inscription.EtudiantId = etudiantId;
+            inscription.ClasseId = classeId;
+            inscription.AnneeScolaireId = anneeId;
+            inscription.Montant = montant;
+            _inscriptionService.CreateInscription(inscription);
             return View();
         }
     }
